@@ -52,7 +52,7 @@ if (BUILD_LIBOPUS)
         _disable_warning(4018)
     endif()
 
-    target_include_directories(libopus PRIVATE
+    target_include_directories(libopus SYSTEM PRIVATE
         ${LIBNYQUIST_ROOT}/third_party/libogg/include
         ${LIBNYQUIST_ROOT}/third_party/opus/celt
         ${LIBNYQUIST_ROOT}/third_party/opus/libopus/include
@@ -142,7 +142,7 @@ if (BUILD_LIBWAVPACK)
         _disable_warning(4703)
     endif()
 
-    target_include_directories(libwavpack PRIVATE ${LIBNYQUIST_ROOT}/third_party/wavpack/include)
+    target_include_directories(libwavpack SYSTEM PRIVATE ${LIBNYQUIST_ROOT}/third_party/wavpack/include)
 
     if (MSVC_IDE)
         set_target_properties(libwavpack PROPERTIES IMPORT_PREFIX "../")
@@ -189,7 +189,7 @@ if (WIN32)
     _disable_warning(4018)
 endif()
 
-target_include_directories(libnyquist
+target_include_directories(libnyquist SYSTEM
   PUBLIC
     $<INSTALL_INTERFACE:include>
     $<BUILD_INTERFACE:${LIBNYQUIST_ROOT}/include>
@@ -297,7 +297,7 @@ if(LIBNYQUIST_BUILD_EXAMPLE)
         message(FATAL, "On Linux, one of LIBNYQUIST_JACK, LIBNYQUIST_PULSE, or LIBNYQUIST_ASOUND must be set.")
     endif()
 
-    target_include_directories(${NQR_EXAMPLE_APP_NAME} PRIVATE
+    target_include_directories(${NQR_EXAMPLE_APP_NAME} SYSTEM PRIVATE
         ${LIBNYQUIST_ROOT}/examples/src
         ${LIBNYQUIST_ROOT}/third_party
     )
