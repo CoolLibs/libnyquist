@@ -22,5 +22,5 @@ function(_set_compile_options proj)
 endfunction()
 
 function(set_cxx_version proj)
-    target_compile_features(${proj} INTERFACE cxx_std_14)
+    target_compile_features(${proj} PUBLIC cxx_std_14)
 endfunction()
