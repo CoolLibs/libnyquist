@@ -294,7 +294,7 @@ if(LIBNYQUIST_BUILD_EXAMPLE)
         target_compile_definitions(${NQR_EXAMPLE_APP_NAME} PRIVATE __LINUX_ALSA__)
         target_link_libraries(${NQR_EXAMPLE_APP_NAME} PRIVATE asound pthread)
     else()
-        message(FATAL, "On Linux, one of LIBNYQUIST_JACK, LIBNYQUIST_PULSE, or LIBNYQUIST_ASOUND must be set.")
+        message(FATAL_ERROR "On Linux, one of LIBNYQUIST_JACK, LIBNYQUIST_PULSE, or LIBNYQUIST_ASOUND must be set.")
     endif()
 
     target_include_directories(${NQR_EXAMPLE_APP_NAME} SYSTEM PRIVATE
