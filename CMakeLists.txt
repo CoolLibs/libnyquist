@@ -230,24 +230,6 @@ set_target_properties(libnyquist
 
 add_library(libnyquist::libnyquist ALIAS libnyquist)
 
-# install the libnyquist binaries
-install(TARGETS libnyquist
-        EXPORT libnyquist
-        LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-        ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
-        INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
-)
-
-# install the cmake configuration files
-install(EXPORT libnyquist
-    FILE libnyquistConfig.cmake
-    NAMESPACE libnyquist::
-    DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/libnyquist"
-)
-
-message(STATUS "CMAKE_INSTALL_INCLUDEDIR: ${CMAKE_INSTALL_INCLUDEDIR}")
-
 # todo, install the headers
 
 # export the targets for use when libnyquist is included as a subproject
