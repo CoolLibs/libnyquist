@@ -48,7 +48,7 @@ void NyquistIO::Load(AudioData * data, const std::string & path)
             }
             catch (const std::exception & e)
             {
-                std::cerr << "NyquistIO::Load(" << path << ") caught internal exception: " << e.what() << std::endl;
+                //std::cerr << "NyquistIO::Load(" << path << ") caught internal exception: " << e.what() << std::endl;
                 throw;
             }
 
@@ -66,7 +66,7 @@ namespace
 static const std::map<std::vector<int16_t>, std::string> magic_map{
         {{ 'w', 'v', 'p', 'k' },                                                     "wv"             },
         {{ 'M', 'P', 'C', 'K' },                                                     "mpc"            },
-        {{ 0xFF, 0xFB },                                                             "mp3"            }, // ÿû, mp3 without ID3 header
+        {{ 0xFF, 0xFB },                                                             "mp3"            }, // ï¿½ï¿½, mp3 without ID3 header
         {{ 'I', 'D', '3' },                                                          "mp3"            }, // mp3 with ID3 header
         {{ 'O', 'g', 'g', 'S' },                                                     "ogg_or_vorbis"  }, // see `match_ogg_subtype`
         {{ 'f', 'L', 'a', 'C' },                                                     "flac"           },
@@ -143,7 +143,7 @@ void NyquistIO::Load(AudioData * data, const std::string & extension, const std:
         }
         catch (const std::exception & e)
         {
-            std::cerr << "caught internal loading exception: " << e.what() << std::endl;
+            //std::cerr << "caught internal loading exception: " << e.what() << std::endl;
             throw;
         }
     }
